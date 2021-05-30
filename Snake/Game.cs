@@ -16,6 +16,7 @@ namespace Snake
         private List<Square> snake;
         PictureBox pictureBox;
         Label Label;
+        
 
         public enum Direction
         {
@@ -45,6 +46,19 @@ namespace Snake
                 return lengthMap / 2;
             }
         }
+
+        public bool isLost
+        {
+            get
+            {
+                foreach (Square square in snake)
+                {
+                    if (snake.Where(d=>d.y == square.y && d.x ==square.x && square != d).Count() > 0) { return true; }
+                }
+                return false;
+            }
+        }
+
 
         public Game(PictureBox pictureBox, Label label)
         {
@@ -105,6 +119,7 @@ namespace Snake
             {
                 GetFood();
             }
+            GetHistorySnake();
 
             switch (actualDirection)
             {
@@ -133,7 +148,32 @@ namespace Snake
                         break;
                     }
             }
+
+            GetNextMoveSnake();
+
             SnakeEating();
+        }
+
+        private void GetNextMoveSnake()
+        {
+            if (snake.Count > 1)
+            {
+                for (int i = 1; i < snake.Count; i++)
+                {
+                    snake[i].x = snake[i - 1].x_old;
+                    snake[i].y = snake[i - 1].y_old;
+
+                }
+            }
+        }
+
+        private void GetHistorySnake()
+        {
+            foreach (Square square in snake)
+            {
+                square.x_old = square.x;
+                square.y_old = square.y;
+            }
         }
 
         private void SnakeEating()
@@ -142,6 +182,11 @@ namespace Snake
             {
                 food = null;
                 this.points++;
+
+                //asginando nuevo elemento a la serpiente
+                Square lastSquare = snake[snake.Count - 1];
+                Square objetSquare = new Square(lastSquare.x_old, lastSquare.y_old);
+                snake.Add(objetSquare);
             }
         }
 
@@ -169,12 +214,14 @@ namespace Snake
 
     public class Square
     {
-        public int x, y;
+        public int x, y, x_old,y_old;
 
         public Square(int x, int y)
         {
             this.x = x;
             this.y = y;
+            this.x_old = x;
+            this.y_old = y;
         }
     }
 }
