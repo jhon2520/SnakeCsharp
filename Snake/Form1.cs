@@ -31,7 +31,6 @@ namespace Snake
             {
                 game.Next();
                 game.Show();
-
             }
             else
             {
@@ -42,11 +41,28 @@ namespace Snake
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            //Aquí puedo colocar que la fecha contraria se bloquee
-            if(e.KeyCode == Keys.W){game.actualDirection = Game.Direction.Up;}
-            if(e.KeyCode == Keys.S){game.actualDirection = Game.Direction.Down; }
-            if(e.KeyCode == Keys.A){game.actualDirection = Game.Direction.Left; }
-            if(e.KeyCode == Keys.D){game.actualDirection = Game.Direction.Right; }
+            //Se necesitan dos métodos para el movimiento uno cuando está la cabeza sola a la cual se le permite libremente y el otro método
+            //cuando se ha agregado cuerpo en la serpiente ya que no se le puede permitir que si por ejemplo está yendo hacia la derecha y se presione
+            //la izquierda, el juepo pierda porque se toma como que la serpiente se chocó con ella misma.
+            if(game.SnakeCount == 1){OnlyHeadMove(sender, e);}
+            else { HeadWithBodyMove(sender, e); }
         }
+
+        private void OnlyHeadMove(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.W){game.actualDirection = Game.Direction.Up;}
+            if (e.KeyCode == Keys.S){game.actualDirection = Game.Direction.Down;}
+            if (e.KeyCode == Keys.A){game.actualDirection = Game.Direction.Left;}
+            if (e.KeyCode == Keys.D){game.actualDirection = Game.Direction.Right;}
+        }
+
+        private void HeadWithBodyMove(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.W && game.actualDirection != Game.Direction.Down){game.actualDirection = Game.Direction.Up;}
+            if (e.KeyCode == Keys.S && game.actualDirection != Game.Direction.Up){game.actualDirection = Game.Direction.Down;}
+            if (e.KeyCode == Keys.A && game.actualDirection != Game.Direction.Right){game.actualDirection = Game.Direction.Left;}
+            if (e.KeyCode == Keys.D && game.actualDirection != Game.Direction.Left){game.actualDirection = Game.Direction.Right;}
+        }
+
     }
 }

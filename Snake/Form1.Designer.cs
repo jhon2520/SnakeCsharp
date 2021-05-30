@@ -39,7 +39,6 @@ namespace Snake
             // 
             // velocimetro
             // 
-            this.velocimetro.Interval = 1;
             this.velocimetro.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // pbxBackgroundGame
