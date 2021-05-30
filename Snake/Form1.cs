@@ -21,8 +21,8 @@ namespace Snake
 
         private void button1_Click(object sender, EventArgs e)
         {
-            game = new Game(pictureBox1,lblPoint);
-            timer1.Enabled = true;
+            game = new Game(pbxBackgroundGame,lblPoint);
+            velocimetro.Enabled = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -35,13 +35,14 @@ namespace Snake
             }
             else
             {
-                timer1.Enabled = false;
+                velocimetro.Enabled = false;
                 MessageBox.Show("Perdiste por feo");
             }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            //Aquí puedo colocar que la fecha contraria se bloquee
             if(e.KeyCode == Keys.W){game.actualDirection = Game.Direction.Up;}
             if(e.KeyCode == Keys.S){game.actualDirection = Game.Direction.Down; }
             if(e.KeyCode == Keys.A){game.actualDirection = Game.Direction.Left; }

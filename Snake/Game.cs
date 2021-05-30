@@ -11,26 +11,25 @@ namespace Snake
     public class Game
     {
         public int scale = 10;
-        public int lengthMap = 40;
+        public int lengthMap = 30;
         private int[,] squares;
         private List<Square> snake;
         PictureBox pictureBox;
         Label Label;
-        
-
-        public enum Direction
-        {
-            Right,
-            Down,
-            Left,
-            Up
-        }
-
+        public enum Direction{Right,Down,Left,Up}
         private Square food = null;
-        private Random Random = new Random();
+        private Random random = new Random();
         private int points = 0;
 
-        public Direction actualDirection = Direction.Right;
+        //get a random initial position
+
+        public Direction actualDirection; // Direction.Right;
+
+        public void RandomDirection()
+        {
+            Direction[] validDirections = new[] {Direction.Up,Direction.Down,Direction.Left,Direction.Right};
+            actualDirection = validDirections[random.Next(validDirections.Length)];
+        }
 
         private int InitialPositionX
         {
@@ -64,6 +63,7 @@ namespace Snake
         {
             this.pictureBox = pictureBox;
             this.Label = label;
+            RandomDirection();
             Reset();
         }
 
@@ -192,8 +192,8 @@ namespace Snake
 
         private void GetFood()
         {
-            int x = Random.Next(0,lengthMap -1);
-            int y = Random.Next(0, lengthMap - 1);
+            int x = random.Next(0,lengthMap -1);
+            int y = random.Next(0, lengthMap - 1);
 
             food = new Square(x, y);
 
