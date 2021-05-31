@@ -1,10 +1,15 @@
 C:\Users\Jhon Romero\source\repos\Snake\Snake\bin\Debug\Snake.exe.config
 C:\Users\Jhon Romero\source\repos\Snake\Snake\bin\Debug\Snake.exe
 C:\Users\Jhon Romero\source\repos\Snake\Snake\bin\Debug\Snake.pdb
-C:\Users\Jhon Romero\source\repos\Snake\Snake\obj\Debug\Snake.Form1.resources
 C:\Users\Jhon Romero\source\repos\Snake\Snake\obj\Debug\Snake.Properties.Resources.resources
 C:\Users\Jhon Romero\source\repos\Snake\Snake\obj\Debug\Snake.csproj.GenerateResource.cache
 C:\Users\Jhon Romero\source\repos\Snake\Snake\obj\Debug\Snake.csproj.CoreCompileInputs.cache
 C:\Users\Jhon Romero\source\repos\Snake\Snake\obj\Debug\Snake.exe
 C:\Users\Jhon Romero\source\repos\Snake\Snake\obj\Debug\Snake.pdb
 C:\Users\Jhon Romero\source\repos\Snake\Snake\obj\Debug\Snake.csproj.AssemblyReference.cache
+C:\Users\Jhon Romero\source\repos\Snake\Snake\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Jhon Romero\source\repos\Snake\Snake\obj\Debug\Snake.FormVentanaInicial.resources
+C:\Users\Jhon Romero\source\repos\Snake\Snake\obj\Debug\Snake.FormVentanaPrincipal.resources
+C:\Users\Jhon Romero\source\repos\Snake\Snake\obj\Debug\Snake.csproj.CopyComplete
+C:\Users\Jhon Romero\source\repos\Snake\Snake\obj\Debug\Snake.FormAviso.resources
+C:\Users\Jhon Romero\source\repos\Snake\Snake\obj\Debug\Snake.FormDificultad.resources

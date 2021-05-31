@@ -33,8 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>..\..\..\..\Documents\Code++\Bunifu\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,18 +50,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormAviso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormAviso.Designer.cs">
+      <DependentUpon>FormAviso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDificultad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDificultad.Designer.cs">
+      <DependentUpon>FormDificultad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVentanaInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVentanaInicial.Designer.cs">
+      <DependentUpon>FormVentanaInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVentanaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVentanaPrincipal.Designer.cs">
+      <DependentUpon>FormVentanaPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Square.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="StaticData.cs" />
+    <EmbeddedResource Include="FormAviso.resx">
+      <DependentUpon>FormAviso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDificultad.resx">
+      <DependentUpon>FormDificultad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVentanaInicial.resx">
+      <DependentUpon>FormVentanaInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVentanaPrincipal.resx">
+      <DependentUpon>FormVentanaPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -67,6 +99,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -82,6 +115,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\retrogames.png" />
+    <None Include="Resources\game.png" />
+    <None Include="Resources\depositphotos_273483862-stock-illustration-green-pixel-art-snake-character.jpg" />
+    <None Include="Resources\1562688808.png" />
+    <None Include="Resources\wp2409705.jpg" />
+    <None Include="Resources\level-up-font.png" />
+    <None Include="Resources\78970851-puntaje-de-crédito.jpg" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

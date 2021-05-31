@@ -16,6 +16,7 @@ namespace Snake
         private List<Square> snake;
         PictureBox pictureBox;
         Label Label;
+        Label lblMensaje;
         public enum Direction{Right,Down,Left,Up}
         private Square food = null;
         private Random random = new Random();
@@ -60,10 +61,11 @@ namespace Snake
             }
         }
 
-        public Game(PictureBox pictureBox, Label label)
+        public Game(PictureBox pictureBox, Label label, Label lblMensaje)
         {
             this.pictureBox = pictureBox;
             this.Label = label;
+            this.lblMensaje = lblMensaje;
             RandomDirection();
             Reset();
         }
@@ -85,11 +87,23 @@ namespace Snake
                 }
             }
             RebootPoints();
+            this.lblMensaje.Text = string.Empty;
         }
 
         private void RebootPoints()
         {
             this.points = 0;
+        }
+
+        public void MensajesLabel()
+        {
+            if(this.points>0 && this.points <= 1000){this.lblMensaje.Text = "¡Novato!";}
+            if (this.points > 1000 && this.points <= 2000) { this.lblMensaje.Text = "¡Puro visaje!"; }
+            if (this.points > 2000 && this.points <= 3000) { this.lblMensaje.Text = "¡Ahí más o menos!"; }
+            if (this.points > 3000 && this.points <= 4000) { this.lblMensaje.Text = "¡Se empieza a poner buena esta cosa!"; }
+            if (this.points > 4000 && this.points <= 5000) { this.lblMensaje.Text = "¡Métale moral!"; }
+            if (this.points > 5000 && this.points <= 7000) { this.lblMensaje.Text = "¡Mera bestia!"; }
+            if (this.points > 7000) { this.lblMensaje.Text = "¡Mis respetos!"; }
         }
 
         public void Show()
@@ -114,7 +128,7 @@ namespace Snake
                     }
                     else
                     {
-                        PaintPixel(bitmap, i, j, Color.White);
+                        PaintPixel(bitmap, i, j, Color.Transparent);
                     }
                 }
             }
@@ -226,7 +240,7 @@ namespace Snake
             if(snake[0].x == food.x && snake[0].y == food.y)
             {
                 food = null;
-                this.points++;
+                this.points += 100;
 
                 //Ya que se comió la comida, se crea un nuevo objeto cuadrado el cual va a estar en la posición dentro de la lista un valor
                 //menor a la cantidad de elementos ya que por ejemplo, pueden haber 3 cuadros ya unidos pero como las listas empiezan en 
